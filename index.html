@@ -152,20 +152,6 @@
       user-select: none;
       letter-spacing: -0.02em;
     }
-    .hero-person {
-      position: absolute;
-      right: 4vw;
-      bottom: 0;
-      height: 90vh;
-      max-height: 820px;
-      object-fit: contain;
-      filter: drop-shadow(-20px 0px 60px rgba(232,0,29,0.3));
-      animation: floatUp 1s 1.8s ease both;
-    }
-    @keyframes floatUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
     .hero-video-wrap {
       position: absolute;
       right: 4vw;
@@ -182,6 +168,10 @@
       bottom: auto;
       height: 100%;
       animation: none;
+    }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .video-sound-btn {
       position: absolute;
@@ -206,7 +196,6 @@
       transform: scale(1.12);
       box-shadow: 0 0 30px rgba(232,0,29,0.6);
     }
-
     .hero-glow {
       position: absolute;
       right: 5vw;
@@ -451,11 +440,13 @@
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+
   <!-- INTRO SPLASH -->
   <div id="intro">
     <div class="intro-name">Venkata Vamsi<span>.</span></div>
     <div class="intro-hint">click anywhere to continue</div>
   </div>
+
   <!-- NAVBAR -->
   <nav>
     <div class="nav-logo">Venkata Vamsi<span>.</span></div>
@@ -468,6 +459,7 @@
     </ul>
     <button class="hire-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
   </nav>
+
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg-text">DEV</div>
@@ -476,7 +468,6 @@
       <video id="heroVideo" class="hero-person" playsinline muted>
         <source src="videos/herovideo.mp4" type="video/mp4" />
       </video>
-
       <button class="video-sound-btn" id="playBtn" onclick="togglePlay()" title="Play / Pause">
         <span id="playIcon">▶</span>
       </button>
@@ -496,6 +487,7 @@
       <div class="scroll-line"></div>
     </div>
   </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="about-grid">
@@ -521,6 +513,7 @@
       </div>
     </div>
   </section>
+
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-label reveal">What I Know</div>
@@ -540,6 +533,7 @@
       <div class="skill-card reveal reveal-delay-3"><div class="skill-icon">🔧</div><div class="skill-name">WebRTC</div></div>
     </div>
   </section>
+
   <!-- PROCESS -->
   <section id="process">
     <div class="section-label reveal">How I Work</div>
@@ -567,6 +561,7 @@
       </div>
     </div>
   </section>
+
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-label reveal">What I've Built</div>
@@ -595,15 +590,24 @@
         </div>
       </div>
 
-      <!-- E-Commerce Store -->
-      <div class="project-card reveal reveal-delay-1" onclick="window.open('https://github.com/vamsichowdhari5540-create/ecommerce-store','_blank')">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#1a0505,#2a0808);">🛒</div>
+      <!-- VELTROX -->
+      <div class="project-card reveal reveal-delay-1" onclick="window.open('https://veltrox.vercel.app','_blank')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#080808,#1a1408);">
+          <span style="position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:6px;background:linear-gradient(135deg,#c9a84c,#f0c060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">VELTROX</span>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 60%, rgba(201,168,76,0.2), transparent 70%);"></div>
+        </div>
         <div class="project-info">
-          <h3>E-Commerce Store</h3>
-          <p>Full-stack online store with cart, payments, and admin dashboard. Built with React, Node.js and Stripe.</p>
-          <div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Stripe</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+            <h3 style="margin:0;">VELTROX Store</h3>
+            <span class="live-badge">Live</span>
+          </div>
+          <p>Cinematic premium tech gadgets e-commerce store with 3D animations, GSAP scroll effects, cursor-reactive particles, cart system and full checkout flow.</p>
+          <div class="project-tags">
+            <span>React</span><span>Framer Motion</span><span>GSAP</span><span>Tailwind</span><span>Three.js</span>
+          </div>
           <div class="project-links">
-            <a href="https://github.com/vamsichowdhari5540-create/ecommerce-store" target="_blank" class="project-link-btn" onclick="event.stopPropagation()">GitHub →</a>
+            <a href="https://github.com/vamsichowdhari5540-create/VELTROX" target="_blank" class="project-link-btn" onclick="event.stopPropagation()">GitHub →</a>
+            <a href="https://veltrox.vercel.app" target="_blank" class="project-link-btn" onclick="event.stopPropagation()" style="background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.5);color:#c9a84c;">Live Demo →</a>
           </div>
         </div>
       </div>
@@ -623,12 +627,14 @@
 
     </div>
   </section>
+
   <!-- BIG NAME -->
   <div id="bigname">
     <div class="bigname-text reveal">FULLSTACK</div>
     <div class="bigname-text filled reveal reveal-delay-1">DEVELOPER</div>
     <div class="bigname-text reveal reveal-delay-2">VENKATA VAMSI</div>
   </div>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-wrap">
@@ -651,6 +657,7 @@
       </div>
     </div>
   </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="logo">Venkata Vamsi<span>.</span></div>
@@ -661,6 +668,7 @@
       <a href="#" class="social-link">tw</a>
     </div>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     const video = document.getElementById('heroVideo');
@@ -669,27 +677,22 @@
     const playIcon = document.getElementById('playIcon');
     let played = false;
 
-    // Preload muted
     video.muted = true;
     video.preload = 'auto';
     video.load();
 
-    // Auto hide intro after 1.8s
     window.addEventListener('load', () => {
       setTimeout(() => {
         intro.classList.add('hide');
       }, 1800);
     });
 
-    // Video ended
     video.addEventListener('ended', () => {
       playIcon.textContent = '▶';
     });
 
-    // Play/Pause toggle - click = user interaction = audio works!
     function togglePlay() {
       if (!played) {
-        // First time - play from beginning with audio
         played = true;
         video.muted = false;
         video.currentTime = 0;
@@ -709,6 +712,7 @@
         playIcon.textContent = '▶';
       }
     }
+
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -722,10 +726,18 @@
       ring.style.top = ry + 'px';
       requestAnimationFrame(animCursor);
     })();
+
     document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.6)'; ring.style.borderColor = 'var(--red)'; });
-      el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(232,0,29,0.5)'; });
+      el.addEventListener('mouseenter', () => {
+        ring.style.transform = 'translate(-50%,-50%) scale(1.6)';
+        ring.style.borderColor = 'var(--red)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.transform = 'translate(-50%,-50%) scale(1)';
+        ring.style.borderColor = 'rgba(232,0,29,0.5)';
+      });
     });
+
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -733,12 +745,14 @@
       });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+
     window.addEventListener('scroll', () => {
       const sy = window.scrollY;
       document.querySelectorAll('.bigname-text').forEach((t, i) => {
         t.style.transform = `translateX(${(i % 2 === 0 ? -1 : 1) * sy * 0.04}px)`;
       });
     });
+
     emailjs.init("K8AE_z6AKWWccJmPP");
     document.querySelector('.submit-btn').addEventListener('click', async function () {
       const btn = this;

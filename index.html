@@ -66,15 +66,6 @@
       animation: pulseIn 1s ease forwards;
     }
     .intro-name span { color: var(--white); }
-    .intro-hint {
-      position: absolute;
-      bottom: 2.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
-      animation: pulseIn 1s 0.8s ease both;
-    }
     @keyframes pulseIn {
       0% { opacity: 0; transform: scale(0.85); }
       100% { opacity: 1; transform: scale(1); }
@@ -441,10 +432,9 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- INTRO SPLASH -->
+  <!-- INTRO SPLASH — auto-advances after 5 seconds, no click/key needed -->
   <div id="intro">
     <div class="intro-name">Venkata Vamsi<span>.</span></div>
-    <div class="intro-hint">click anywhere to continue</div>
   </div>
 
   <!-- NAVBAR -->
@@ -506,8 +496,8 @@
         <p class="reveal reveal-delay-2">I'm a passionate <strong>Full Stack Developer</strong> with a love for creating clean, functional and beautiful web experiences. I combine strong technical skills with an eye for design.</p>
         <p class="reveal reveal-delay-3">From crafting smooth frontend interactions to architecting scalable backend systems — I love every part of the process. Currently pursuing my degree while working on real-world projects.</p>
         <div class="stats-row reveal reveal-delay-4">
-          <div class="stat-item"><div class="stat-num">12+</div><div class="stat-label">Projects Done</div></div>
-          <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">Years Learning</div></div>
+          <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">Projects Done</div></div>
+          <div class="stat-item"><div class="stat-num">2+</div><div class="stat-label">Years Learning</div></div>
           <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Tech Stacks</div></div>
         </div>
       </div>
@@ -678,13 +668,19 @@
     let played = false;
 
     video.muted = true;
-    video.preload = 'auto';
+    // Changed from 'auto' to 'metadata': 'auto' was telling the browser to
+    // download the ENTIRE 15MB video file immediately on page load, even
+    // though most visitors won't click play right away. 'metadata' only
+    // fetches enough to know duration/dimensions — the actual video data
+    // only starts downloading once the person clicks the play button.
+    video.preload = 'metadata';
     video.load();
 
+    // Intro splash auto-advances after 5 seconds — no click or key needed.
     window.addEventListener('load', () => {
       setTimeout(() => {
         intro.classList.add('hide');
-      }, 1800);
+      }, 5000);
     });
 
     video.addEventListener('ended', () => {

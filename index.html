@@ -691,7 +691,15 @@
       if (!played) {
         played = true;
         video.muted = false;
-        video.currentTime = 0;
+        // Removed: video.currentTime = 0;
+        // This was forcing the browser to re-seek a video that hadn't
+        // finished loading yet (preload is 'metadata', not 'auto'), which
+        // cancelled the in-progress network request and restarted it from
+        // scratch — visible in DevTools as one (canceled) request at 0kB
+        // immediately followed by a second one. Since this is the FIRST
+        // play and the video is already at position 0 by default, setting
+        // currentTime here was unnecessary and was the actual cause of the
+        // buffering/stutter on click.
         video.play().then(() => {
           playIcon.textContent = '⏸';
         }).catch(() => {
